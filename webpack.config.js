@@ -16,6 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
+        exclude: /(node_modules|bower_components)/,
         loader: 'happypack/loader?id=ts',
         options: {
           transpileOnly: true // IMPORTANT! use transpileOnly to speed-up compilation
@@ -23,6 +24,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
         loader: 'happypack/loader?id=js',
       },
     ]
@@ -35,7 +37,7 @@ module.exports = {
         {
           id: 'js',
           loader: 'babel-loader',
-          query: { presets: [ 'esnext' ] }
+          query: { presets: [ '@babel/preset-env' ] }
         },
       ]
     }),
